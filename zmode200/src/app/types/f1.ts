@@ -76,12 +76,15 @@ export interface PitStop {
     duration: string; 
 }
 
+export interface Timing {
+  driverId: string;
+  position: string;
+  time: string;
+}
+
 export interface LapTime {
-    driverId: string; 
-    lap: number; 
-    position: number; 
-    time: string; 
-    milliseconds: number; 
+  number: string;
+  Timings: Timing[];
 }
 
 export interface DriverStanding {

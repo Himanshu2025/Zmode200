@@ -1,8 +1,6 @@
-import { getRaces,getRaceResult } from "./lib/api/jolpica";
+import { getRaces,getRaceResult } from "../lib/api/jolpica";
 import RaceSelector from "@/components/race/RaceSelector";
 import RaceResultsTable from "@/components/race/RaceResultsTable";
-
-
 
 export default async function Home({
   searchParams,
