@@ -11,8 +11,7 @@ interface RaceSelectorProps {
 }
 
 
-
-
+// Race selector to select a specific race and view it's data 
 export default function RaceSelector( {races, selectedRound } : RaceSelectorProps ){
     
     const router = useRouter(); 
@@ -31,7 +30,7 @@ export default function RaceSelector( {races, selectedRound } : RaceSelectorProp
 
                 <SelectContent>
                     {races.map((race) => (
-                        <SelectItem key={race.round} value={race.round}}>
+                        <SelectItem key={race.round} value={race.round}>
                             {race.raceName }
                         </SelectItem>
                     ))}
