@@ -68,7 +68,7 @@ export interface QualifyingResult {
    Q3?: string; 
 }
 
-export interface Pitstop {
+export interface PitStop {
     driverId: string; 
     lap: number; 
     position: number; 
@@ -76,7 +76,7 @@ export interface Pitstop {
     duration: string; 
 }
 
-export interface Laptime {
+export interface LapTime {
     driverId: string; 
     lap: number; 
     position: number; 
