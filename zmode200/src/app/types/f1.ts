@@ -86,6 +86,11 @@ export interface LapTime {
   number: string;
   Timings: Timing[];
 }
+export interface DriverLap {
+  lap: number;
+  driver: string;
+  time: number;
+}
 
 export interface DriverStanding {
     position: string; 

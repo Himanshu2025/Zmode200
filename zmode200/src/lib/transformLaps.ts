@@ -1,5 +1,5 @@
 
-import { LapTime } from "@/app/types/f1";
+import { LapTime,DriverLap } from "@/app/types/f1";
 
 function timeToSeconds(time: string): number {
     const [minPart, secPart] = time.split(":"); 
@@ -8,19 +8,20 @@ function timeToSeconds(time: string): number {
 
 }
 
-export function secondsToTime(seconds: number): string {
+export function secondsToTime(seconds: number | undefined): string {
+  if ( seconds === undefined) return ""; 
   const mins = Math.floor(seconds / 60);
   const secs = (seconds % 60).toFixed(3);
   return `${mins}:${secs.padStart(6, "0")}`;
 }
 
-export function transformLaps(laps: LapTime[]): Record<string, unknown>[] {
-  return laps.map((lap) => {
-    const entry: Record<string, unknown> = { lap: parseInt(lap.number) };
-    lap.Timings.forEach((timing) => {
-      entry[timing.driverId] = timeToSeconds(timing.time);
-    });
-    return entry;
-  });
+export function transformLaps(rawLaps: LapTime[]): DriverLap[] {
+  return rawLaps.flatMap((lap) =>
+    lap.Timings.map((timing) => ({
+      lap: parseInt(lap.number),
+      driver: timing.driverId,
+      time: timeToSeconds(timing.time),
+    }))
+  );
 }
 
